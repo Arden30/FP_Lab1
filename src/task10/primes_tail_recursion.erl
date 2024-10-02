@@ -1,16 +1,16 @@
--module(recursion).
+-module(primes_tail_recursion).
 
 %% API
 -export([sum_of_primes/1]).
 
-sum_of_primes(N) -> sum_of_primes(N, 2).
+sum_of_primes(N) -> sum_of_primes(N, 2, 0).
 
-sum_of_primes(N, Curr) when Curr >= N -> 0;
-sum_of_primes(N, Curr) ->
+sum_of_primes(N, Curr, Acc) when Curr >= N -> Acc;
+sum_of_primes(N, Curr, Acc) ->
   IsPrime = is_prime(Curr),
   if
-    IsPrime -> Curr + sum_of_primes(N, Curr + 1);
-    true -> sum_of_primes(N, Curr + 1)
+    IsPrime -> sum_of_primes(N, Curr + 1, Acc + Curr);
+    true -> sum_of_primes(N, Curr + 1, Acc)
   end.
 
 is_prime(2) -> true;

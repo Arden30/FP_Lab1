@@ -1,4 +1,4 @@
--module(seq_filter_fold).
+-module(primes_seq_filter_fold).
 
 %% API
 -export([sum_of_primes/1]).

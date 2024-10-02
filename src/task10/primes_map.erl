@@ -1,4 +1,4 @@
--module(map).
+-module(primes_map).
 
 %% API
 -export([sum_of_primes/1]).
