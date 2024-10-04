@@ -1,6 +1,5 @@
 -module(amicable_infinite_list_with_process).
 
-%% API
 -export([sum_of_amicable_numbers/1]).
 
 sum_of_amicable_numbers(N) ->

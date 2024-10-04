@@ -1,6 +1,5 @@
 -module(primes_infinite_list_with_process).
 
-%% API
 -export([sum_of_primes/1]).
 
 sum_of_primes(N) ->

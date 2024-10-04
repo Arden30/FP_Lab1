@@ -1,6 +1,5 @@
 -module(amicable_tail_recursion).
 
-%% API
 -export([sum_of_amicable_numbers/1]).
 
 sum_of_amicable_numbers(N) -> sum_of_amicable_numbers(N, 1, 0).
