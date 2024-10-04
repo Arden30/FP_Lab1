@@ -13,7 +13,7 @@ jobs:
           rebar3-version: '3.24.0'
       - name: Linter
         run: rebar3 lint
-        working-directory: ${{github.workspace}}/FP_Lab1
+        working-directory: ${{github.workspace}}
       - name: Tests
         run: rebar3 eunit -v
-        working-directory: ${{github.workspace}}/FP_Lab1
+        working-directory: ${{github.workspace}}
