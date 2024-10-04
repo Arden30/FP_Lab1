@@ -13,9 +13,9 @@ sum_of_amicable_numbers(NextGenerator, Sum, N) ->
             case {Num >= N, IsAmicable} of
                 {true, _} ->
                     Sum;
-                {true, true} ->
+                {false, true} ->
                     sum_of_amicable_numbers(NextGenerator, Sum + Num, N);
-                {true, false} ->
+                {false, false} ->
                     sum_of_amicable_numbers(NextGenerator, Sum, N)
             end
     end.

@@ -10,8 +10,7 @@ sum_of_amicable_numbers(N, A) when N =< A ->
 sum_of_amicable_numbers(N, A) ->
     B = sum_of_proper_divisors(A),
     DB = sum_of_proper_divisors(B),
-    IsAmicable = A == DB,
-    A =/= B,
+    IsAmicable = A == DB andalso A =/= B,
     case IsAmicable of
         true ->
             A + sum_of_amicable_numbers(N, A + 1);
