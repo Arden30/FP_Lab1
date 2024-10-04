@@ -10,10 +10,10 @@ sum_of_amicable_numbers(NextGenerator, Sum, N) ->
   receive
     Num ->
       IsAmicable = is_amicable(Num),
-      if
-        Num >= N -> Sum;
-        IsAmicable -> sum_of_amicable_numbers(NextGenerator, Sum + Num, N);
-        true -> sum_of_amicable_numbers(NextGenerator, Sum, N)
+      case {Num >= N, IsAmicable} of
+        {true, _} -> Sum;
+        {true, true} -> sum_of_amicable_numbers(NextGenerator, Sum + Num, N);
+        {true, false} -> sum_of_amicable_numbers(NextGenerator, Sum, N)
       end
   end.
 

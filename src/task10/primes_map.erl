@@ -5,9 +5,9 @@
 sum_of_primes(N) ->
   lists:sum(lists:map(fun(X) ->
     IsPrime = is_prime(X),
-    if
-      IsPrime -> X;
-      true -> 0
+    case IsPrime of
+      true -> X;
+      false -> 0
     end end, lists:seq(2, N - 1))).
 
 is_prime(2) -> true;

@@ -6,10 +6,11 @@ sum_of_amicable_numbers(N) ->
   lists:sum(
     lists:map(fun(A) ->
       B = sum_of_proper_divisors(A),
-      D_B = sum_of_proper_divisors(B),
-        if
-          B =/= A andalso D_B =:= A -> A;
-          true -> 0
+      DB = sum_of_proper_divisors(B),
+      IsAmicable = B =/= A andalso DB =:= A,
+        case IsAmicable of
+          true -> A;
+          false -> 0
         end
       end,
       lists:seq(1, N - 1)

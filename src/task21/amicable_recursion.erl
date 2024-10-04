@@ -6,10 +6,11 @@ sum_of_amicable_numbers(N) -> sum_of_amicable_numbers(N, 1).
 sum_of_amicable_numbers(N, A) when N =< A -> 0;
 sum_of_amicable_numbers(N, A) ->
   B = sum_of_proper_divisors(A),
-  D_B = sum_of_proper_divisors(B),
-  if
-    A == D_B, A =/= B -> A + sum_of_amicable_numbers(N, A + 1);
-    true -> sum_of_amicable_numbers(N, A + 1)
+  DB = sum_of_proper_divisors(B),
+  IsAmicable = A == DB, A =/= B,
+  case IsAmicable of
+    true -> A + sum_of_amicable_numbers(N, A + 1);
+    false -> sum_of_amicable_numbers(N, A + 1)
   end.
 
 sum_of_proper_divisors(N) -> sum_of_proper_divisors(N, 1).

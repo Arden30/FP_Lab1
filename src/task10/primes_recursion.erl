@@ -7,9 +7,9 @@ sum_of_primes(N) -> sum_of_primes(N, 2).
 sum_of_primes(N, Curr) when Curr >= N -> 0;
 sum_of_primes(N, Curr) ->
   IsPrime = is_prime(Curr),
-  if
-    IsPrime -> Curr + sum_of_primes(N, Curr + 1);
-    true -> sum_of_primes(N, Curr + 1)
+  case IsPrime of
+    true -> Curr + sum_of_primes(N, Curr + 1);
+    false -> sum_of_primes(N, Curr + 1)
   end.
 
 is_prime(2) -> true;

@@ -10,10 +10,10 @@ sum_of_primes(NextGenerator, Sum, N) ->
   receive
     Num ->
       IsPrime = is_prime(Num),
-      if
-        Num >= N -> Sum;
-        IsPrime -> sum_of_primes(NextGenerator, Sum + Num, N);
-        true -> sum_of_primes(NextGenerator, Sum, N)
+      case {Num >= N, IsPrime} of
+        {true, _} -> Sum;
+        {false, true} -> sum_of_primes(NextGenerator, Sum + Num, N);
+        {false, false} -> sum_of_primes(NextGenerator, Sum, N)
       end
   end.
 
