@@ -1,3 +1,4 @@
+![Linter/Tests](https://github.com/Arden30/FP_Lab1/actions/workflows/fp_lab1.yaml/badge.svg)
 # Функциональное программирование. Лабораторная работа №1
 ## Выполнил: `Арсеньев Денис, группа P3314`
 ## Язык: `Erlang`. Вариант: 10, 21
