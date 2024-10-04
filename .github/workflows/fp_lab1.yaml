@@ -1,0 +1,19 @@
+name: FP_Lab1
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: erlef/setup-beam@v1
+        with:
+          otp-version: '27'
+          rebar3-version: '3.24.0'
+      - name: Linter
+        run: rebar3 lint
+        working-directory: ${{github.workspace}}/FP_Lab1
+      - name: Tests
+        run: rebar3 eunit -v
+        working-directory: ${{github.workspace}}/FP_Lab1
