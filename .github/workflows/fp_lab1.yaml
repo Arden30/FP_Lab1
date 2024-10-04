@@ -1,4 +1,4 @@
-name: FP_Lab1
+name: Lint/Test Code
 
 on: push
 
