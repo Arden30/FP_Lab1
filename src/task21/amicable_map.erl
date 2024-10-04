@@ -18,5 +18,14 @@ sum_of_amicable_numbers(N) ->
                   lists:seq(1, N - 1))).
 
 sum_of_proper_divisors(N) ->
-    Divisors = lists:filter(fun(X) -> N rem X == 0 end, lists:seq(1, N div 2)),
-    lists:sum(Divisors).
+    lists:sum(
+        lists:map(fun(X) ->
+                     IsDivided = N rem X == 0,
+                     case IsDivided of
+                         true ->
+                             X;
+                         false ->
+                             0
+                     end
+                  end,
+                  lists:seq(1, N div 2))).
